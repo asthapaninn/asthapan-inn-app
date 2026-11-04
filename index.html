@@ -1,14 +1,30 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#123b32"><meta name="description" content="Asthapan Inn Room Manager">
-<link rel="manifest" href="./manifest.webmanifest"><link rel="icon" href="./icons/icon-192.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b32">
+<meta name="description" content="Asthapan Inn Room Manager">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="icon" href="./asthapan-icon-192.png">
 <title>Asthapan Inn Room Manager</title>
-<style>html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f5f7f6}iframe{display:block;width:100%;height:100%;border:0}#loading{position:fixed;inset:0;display:grid;place-items:center;font:16px Arial;color:#234;z-index:-1}</style>
+<style>
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#f5f7f6}
+iframe{display:block;width:100%;height:100%;border:0}
+#loading{position:fixed;inset:0;display:grid;place-items:center;font:16px Arial;color:#234;z-index:-1}
+</style>
 </head>
 <body>
 <div id="loading">Loading Asthapan Inn Room Manager…</div>
-<iframe title="Asthapan Inn Room Manager" src="https://script.google.com/macros/s/AKfycby6oVlPyOiQpuMC_rcWiLhFB31xSuP5hSs1h3mIj_xrsI0T21ZxCFuZbLuvRDDSPxO3Zg/exec" allow="clipboard-read; clipboard-write; camera"></iframe>
-<script>if("serviceWorker" in navigator){addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}</script>
-</body></html>
+<iframe title="Asthapan Inn Room Manager"
+src="https://script.google.com/macros/s/AKfycby6oVlPyOiQpuMC_rcWiLhFB31xSuP5hSs1h3mIj_xrsI0T21ZxCFuZbLuvRDDSPxO3Zg/exec"
+allow="clipboard-read; clipboard-write; camera"></iframe>
+<script>
+if("serviceWorker" in navigator){
+  addEventListener("load",()=>{
+    navigator.serviceWorker.register("./sw.js").catch(()=>{});
+  });
+}
+</script>
+</body>
+</html>
