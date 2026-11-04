@@ -1,5 +1,37 @@
-const C="asthapan-shell-v1";
-const F=["./","./index.html","./manifest.webmanifest","./icons/icon-192.png","./icons/icon-512.png"];
-self.addEventListener("install",e=>{e.waitUntil(caches.open(C).then(c=>c.addAll(F)));self.skipWaiting()});
-self.addEventListener("activate",e=>{e.waitUntil(caches.keys().then(a=>Promise.all(a.filter(x=>x!==C).map(x=>caches.delete(x)))));self.clients.claim()});
-self.addEventListener("fetch",e=>{const u=new URL(e.request.url);if(u.origin===location.origin&&e.request.method==="GET")e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request)))});
+const CACHE = "asthapan-shell-v2";
+
+const FILES = [
+  "./",
+  "./index.html",
+  "./manifest.webmanifest",
+  "./asthapan-icon-192.png",
+  "./icon-512.png"
+];
+
+self.addEventListener("install", event => {
+  event.waitUntil(
+    caches.open(CACHE).then(cache => cache.addAll(FILES))
+  );
+  self.skipWaiting();
+});
+
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(key => key !== CACHE).map(key => caches.delete(key))
+      )
+    )
+  );
+  self.clients.claim();
+});
+
+self.addEventListener("fetch", event => {
+  const url = new URL(event.request.url);
+
+  if (url.origin === self.location.origin && event.request.method === "GET") {
+    event.respondWith(
+      caches.match(event.request).then(cached => cached || fetch(event.request))
+    );
+  }
+});
